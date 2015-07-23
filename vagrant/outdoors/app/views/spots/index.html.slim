@@ -1,0 +1,15 @@
+h1 Spots#index
+
+table
+  thead
+    tr
+      th スポット名
+      th スポット情報
+      th 画像
+
+    tbody
+      - @spots.each do |spot|
+        tr
+          td = spot.name
+          td = spot.body
+          td = image_tag(spot.image_path, size: "320x240")
