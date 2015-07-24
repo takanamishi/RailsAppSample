@@ -1,2 +1,15 @@
 h1 UserSessions#new
 p Find me in app/views/user_sessions/new.html.slim
+
+- if action_name == "create"
+  .alert.alert-danger
+    メールアドレスまたはパスワードが正しくありません。
+
+= form_for @user, url: user_sessions_path, method: :post do |f|
+  .field
+    = f.label :email
+    = f.text_field :email
+  .field
+    = f.label :password
+    = f.password_field :password
+  .action = f.submit
