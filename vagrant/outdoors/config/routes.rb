@@ -3,7 +3,8 @@ Rails.application.routes.draw do
 
   get 'spots/index'
 
-  resources :users
+  # resources :users
+  resource :users, only: [:new, :create]
 
   root to: 'spots#index'
   # The priority is based upon order of creation: first created -> highest priority.

@@ -29,10 +29,13 @@ html lang="en"
             span.icon-bar
           a.navbar-brand href="#"Outdoors
           .navbar-collapse.collapse.navbar-responsive-collapse
-            ul.nav.navbar-nav
-              li= link_to "Link 1", "/path1"
-              li= link_to "Link 2", "/path2"
-              li= link_to "Link 3", "/path3"
+          - if logged_in?
+            ul.nav.navbar-nav.navbar-right
+              li= link_to "ログアウト", user_sessions_path, method: :delete
+          - else
+            ul.nav.navbar-nav.navbar-right
+              li= link_to "会員登録", new_users_path
+              li= link_to "ログイン", new_user_sessions_path
 
     .container
       .row
