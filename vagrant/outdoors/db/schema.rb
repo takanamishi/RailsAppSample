@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150722121753) do
+ActiveRecord::Schema.define(version: 20150725024537) do
 
   create_table "spots", force: :cascade do |t|
     t.string   "name"
@@ -20,6 +20,17 @@ ActiveRecord::Schema.define(version: 20150722121753) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "user_spots", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "spot_id"
+    t.boolean  "judgment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "user_spots", ["spot_id"], name: "index_user_spots_on_spot_id"
+  add_index "user_spots", ["user_id"], name: "index_user_spots_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",            null: false
