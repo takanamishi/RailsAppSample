@@ -24,7 +24,11 @@ class SpotsController < ApplicationController
     judgments = params[:spot_id]
 
     judgments.each do |judgment|
-      current_user.user_spots.create(spot_id: judgment[0], judgment: judgment[1])
+      if current_user.user_spots.create(spot_id: judgment[0], judgment: judgment[1]).valid?
+      else
+        redirect_to spots_url, notice: "登録に失敗しました。"
+        break
+      end
     end
 
     redirect_to spots_url, notice: "登録が完了しました。"
