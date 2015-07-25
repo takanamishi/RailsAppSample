@@ -2,11 +2,13 @@ class SpotsController < ApplicationController
   before_filter :require_login
 
   def index
-    #評価済みのスポット情報を取得し、全て評価済みか判定
-    if current_user.spots.count < Spot.all.count
+    #評価済みのスポット情報の件数を取得し、全て評価済みか判定
+    unrated_spot_count = UserSpot.where(user_id: current_user.id).count
+
+    if unrated_spot_count < Spot.all.count
       redirect_to :action => "new"
     else
-      redirect_to :action => "show"
+      @rated_spots = current_user.spots
     end
   end
 
