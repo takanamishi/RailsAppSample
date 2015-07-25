@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 20150725024537) do
   create_table "user_spots", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "spot_id"
-    t.boolean  "judgment"
+    t.integer  "judgment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
