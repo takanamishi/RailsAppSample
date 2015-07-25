@@ -8,7 +8,7 @@ class UserSessionsController < ApplicationController
     password = params_user[:password]
 
     if login(email, password)
-      redirect_to root_url, notice: "ログインに成功しました。"
+      redirect_to spots_path, notice: "ログインに成功しました。"
     else
       @user = User.new(email: email)
       render :new

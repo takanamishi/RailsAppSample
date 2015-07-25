@@ -28,8 +28,8 @@ class UsersController < ApplicationController
 
     if @user.save
       # サインアップ後にログイン済みにする
-      login(@user.email, @user.password)
-      redirect_to root_url, notice: "会員登録が完了しました。"
+      login(user_params[:email], user_params[:password])
+      redirect_to spots_path, notice: "会員登録が完了しました。"
     else
       render action: 'new'
     end
