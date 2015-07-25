@@ -21,10 +21,10 @@ class SpotsController < ApplicationController
   end
 
   def create
-    judgment_ids = params[:spot_id]
+    judgments = params[:spot_id]
 
-    judgment_ids.each do |id|
-      current_user.user_spots.create(spot_id: judgment_ids[0], judgment: true)
+    judgments.each do |judgment|
+      current_user.user_spots.create(spot_id: judgment[0], judgment: judgment[1])
     end
 
     redirect_to spots_url, notice: "登録が完了しました。"
