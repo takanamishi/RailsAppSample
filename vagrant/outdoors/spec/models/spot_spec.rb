@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Spot, :type => :model do
+  fixtures :spots
+
   before do
     @spots = Spot.all
   end
