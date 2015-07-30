@@ -5,7 +5,6 @@ RSpec.describe SpotsController, :type => :controller do
 
   before do
     @user = users(:testuser)
-    @spots = Spot.all
 
     login_user(@user)
   end
@@ -52,26 +51,15 @@ RSpec.describe SpotsController, :type => :controller do
       expect(response).to redirect_to(:action => 'new')
     end
 
-    it "@rated_spotsにはユーザーが評価したイベント情報が設定されていること" do
+    it "@rated_spotsにはuserに紐づくスポット情報がロードされていること" do
       @user.user_spots.create(spot_id: 1, judgment: 1)
       @user.user_spots.create(spot_id: 2, judgment: 1)
-      @user.user_spots.create(spot_id: 2, judgment: 0)
-      @user.user_spots.create(spot_id: 2, judgment: 0)
-      @user.user_spots.create(spot_id: 2, judgment: 0)
+      @user.user_spots.create(spot_id: 3, judgment: 0)
+      @user.user_spots.create(spot_id: 4, judgment: 0)
+      @user.user_spots.create(spot_id: 5, judgment: 0)
 
       get :index
       expect(assigns(:rated_spots)).to eq @user.spots
-    end
-
-    it "行きたいスポット情報が2件の場合、@rated_spotsに2件のスポット情報が入っていること" do
-      @user.user_spots.create(spot_id: 1, judgment: 1)
-      @user.user_spots.create(spot_id: 2, judgment: 1)
-      @user.user_spots.create(spot_id: 2, judgment: 0)
-      @user.user_spots.create(spot_id: 2, judgment: 0)
-      @user.user_spots.create(spot_id: 2, judgment: 0)
-
-      get :index
-      expect(assigns(:rated_spots).count) == 3
     end
 
   end
