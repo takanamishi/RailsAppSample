@@ -15,6 +15,7 @@ class UsersController < ApplicationController
   # GET /users/new
   def new
     @user = User.new
+    render :layout => 'registrations'
   end
 
   # GET /users/1/edit
@@ -31,7 +32,7 @@ class UsersController < ApplicationController
       login(user_params[:email], user_params[:password])
       redirect_to spots_path, notice: "会員登録が完了しました。"
     else
-      render action: 'new'
+      render action: 'new', :layout => "registrations"
     end
   end
 
