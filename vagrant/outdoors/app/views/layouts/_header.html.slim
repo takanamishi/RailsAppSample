@@ -1,7 +1,7 @@
     .navbar.navbar-default.navbar-static-top
         .container
           .navbar-header
-            = link_to 'Outdoors', root_url, class: "navbar-brand"
+            = link_to 'Outdoors', spots_path, class: "navbar-brand"
           - if logged_in?
             ul.nav.navbar-nav.navbar-right
               li= link_to "登録情報の編集", edit_user_path(current_user)
