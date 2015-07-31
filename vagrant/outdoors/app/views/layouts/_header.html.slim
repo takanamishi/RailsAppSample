@@ -1,13 +1,10 @@
     .navbar.navbar-default.navbar-static-top
         .container
-          button.navbar-toggle type="button" data-toggle="collapse" data-target=".navbar-responsive-collapse"
-            span.icon-bar
-            span.icon-bar
-            span.icon-bar
-          a.navbar-brand href="#"Outdoors
-          .navbar-collapse.collapse.navbar-responsive-collapse
+          .navbar-header
+            = link_to 'Outdoors', root_url, class: "navbar-brand"
           - if logged_in?
             ul.nav.navbar-nav.navbar-right
+              li= link_to "登録情報の編集", edit_user_path(current_user)
               li= link_to "ログアウト", user_sessions_path, method: :delete
           - else
             ul.nav.navbar-nav.navbar-right
