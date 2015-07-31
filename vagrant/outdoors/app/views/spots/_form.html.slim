@@ -1,9 +1,13 @@
 = form_tag @spot do
   - @unrated_spots.each do |unrated_spot|
-    p = unrated_spot.name
-    p = unrated_spot.body
-    p = image_tag(unrated_spot.image_path, size: "320x240")
-    .field
-      = radio_button_tag :"spot_id[#{unrated_spot.id}]", 0
-      = radio_button_tag :"spot_id[#{unrated_spot.id}]", 1
-  .action = submit_tag 'Save'
+    .row
+      .col-xs-4.left-content
+        p.image = image_tag(unrated_spot.image_path, size: "320x240")
+      .col-xs-8.right-content
+        h2.name = unrated_spot.name
+        p.body_text = unrated_spot.body
+        .field
+          = radio_button_tag :"spot_id[#{unrated_spot.id}]", 0
+          = radio_button_tag :"spot_id[#{unrated_spot.id}]", 1
+  .col-xs-4.form-btn
+    .action = submit_tag 'チェックを完了する', class: "btn btn-primary btn-lg"

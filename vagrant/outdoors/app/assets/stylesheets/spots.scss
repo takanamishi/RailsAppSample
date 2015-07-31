@@ -1,3 +1,46 @@
 // Place all the styles related to the Spots controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#spots_new
+{
+
+  form
+  {
+
+    .left-content
+    {
+      margin-bottom: 20px;
+    }
+
+    .right-content
+    {
+      background-color: #fff;
+      border: 1px solid #e7e7e7;
+
+      .name
+      {
+        margin-bottom: 20px;
+      }
+
+      .body_text
+      {
+        font-size: 16px;
+        margin-bottom: 20px;
+        line-height: 22px;
+      }
+    }
+
+    .form-btn
+    {
+      margin: 0 auto;
+      float: none;
+
+      .btn
+      {
+        width: 100%;
+        margin: 10px 0;
+      }
+    }
+  }
+}
