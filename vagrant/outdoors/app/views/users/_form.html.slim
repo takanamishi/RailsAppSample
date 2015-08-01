@@ -1,9 +1,9 @@
 = form_for @user do |f|
   h2
-    - if request.path_info == new_user_path or request.path_info == root_path
-      会員登録する
-    - else
+    - if current_user
       登録情報の編集
+    - else
+      会員登録する
   
   - if @user.errors.any?
     - @user.errors.full_messages.each do |message|
@@ -19,9 +19,9 @@
     = f.label :password_confirmation, "パスワードの確認", class: "control-label"
     = f.password_field :password_confirmation, class: "form-control"
 
-  - if request.path_info == new_user_path or request.path_info == root_path
+  - if current_user
+    .actions = f.submit "変更する", class: "btn btn-primary"
+  - else
     .actions = f.submit "登録する", class: "btn btn-primary"
     = link_to "ログインする", new_user_sessions_path
-  - else
-    .actions = f.submit "変更する", class: "btn btn-primary"
 .clear
