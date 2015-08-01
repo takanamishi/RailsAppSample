@@ -2,17 +2,21 @@
   .container
     h2
       行きたいスポット一覧
-    p.ex
-      誰といきますか？いつ行きますか？
 
-    - @rated_spots.each do |spot|
-      .row
-        .col-xs-4.left-content
-          p.image = image_tag(spot.image_path, size: "320x240")
-        .col-xs-8.right-content
-          h2.name = spot.name
-          p.body_text = spot.body
-          p
-            行く相手を誘う
-          p
-            行く日を決める
+    - if @rated_spots.size == 0
+      h3
+        行きたいイベントがありません。新着イベントをお待ちください。
+    - else
+      - @rated_spots.each do |spot|
+        p.ex
+          誰といきますか？いつ行きますか？
+        .row
+          .col-xs-4.left-content
+            p.image = image_tag(spot.image_path, size: "320x240")
+          .col-xs-8.right-content
+            h2.name = spot.name
+            p.body_text = spot.body
+            p
+              行く相手を誘う
+            p
+              行く日を決める
