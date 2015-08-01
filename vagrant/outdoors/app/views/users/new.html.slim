@@ -3,5 +3,8 @@
     h1 OUTDOORS
     p.ex
       行きたいスポットをチェックしてお出かけスケジュールを作成しよう
+    - if notice
+      .alert.alert-info = notice
+
   .col-xs-6.right-content
     == render 'form'

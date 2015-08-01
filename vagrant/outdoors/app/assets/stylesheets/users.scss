@@ -37,6 +37,11 @@ $base_margin: 30px;
     .right-content
     {
       padding: 0 $base_margin;
+
+      .login
+      {
+        color: #333333;
+      }
     }
   }
 }
