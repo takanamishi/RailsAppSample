@@ -9,18 +9,22 @@ $red: #eb4f37;
 #spots_new
 {
 
+  .left-content
+  {
+    margin-bottom: 20px;
+  }  
+
+  .right-content
+  {
+    background-color: #fff;
+    border: 1px solid #e7e7e7;
+  }
+
   form
   {
 
-    .left-content
-    {
-      margin-bottom: 20px;
-    }
-
     .right-content
     {
-      background-color: #fff;
-      border: 1px solid #e7e7e7;
 
       .name
       {
