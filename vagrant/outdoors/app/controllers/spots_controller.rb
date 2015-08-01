@@ -1,6 +1,4 @@
 class SpotsController < ApplicationController
-  before_filter :require_login
-
   def index
     #評価済みのスポット情報の件数を取得し、全て評価済みか判定
     unrated_spot_count = UserSpot.where(user_id: current_user.id).count

@@ -1,4 +1,6 @@
 class UserSessionsController < ApplicationController
+  skip_before_filter :require_login, except: [:destory]
+
   def new
     @user = User.new
   end
