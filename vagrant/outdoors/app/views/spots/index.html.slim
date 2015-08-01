@@ -1,13 +1,18 @@
-table
-  thead
-    tr
-      th スポット名
-      th スポット情報
-      th 画像
+#spots_index
+  .container
+    h2
+      行きたいスポット一覧
+    p.ex
+      誰といきますか？いつ行きますか？
 
-    tbody
-      - @rated_spots.each do |spot|
-        tr
-          td = spot.name
-          td = spot.body
-          td = image_tag(spot.image_path, size: "320x240")
+    - @rated_spots.each do |spot|
+      .row
+        .col-xs-4.left-content
+          p.image = image_tag(spot.image_path, size: "320x240")
+        .col-xs-8.right-content
+          h2.name = spot.name
+          p.body_text = spot.body
+          p
+            行く相手を誘う
+          p
+            行く日を決める
