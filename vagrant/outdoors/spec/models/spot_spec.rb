@@ -7,7 +7,6 @@ RSpec.describe Spot, :type => :model do
     @spots = Spot.all
     @user = users(:testuser)
     @spot = spots(:nanohana)
-    # @user.user_spots.create(spot_id: @spot.id, judgment: 0)
   end
 
   it "スポット情報として5件登録されていること" do

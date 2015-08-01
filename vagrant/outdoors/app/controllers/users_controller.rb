@@ -43,8 +43,6 @@ class UsersController < ApplicationController
         redirect_to spots_path, notice: "変更が完了しました。"
       else
         render action: 'edit'
-        # format.html { render :edit }
-        # format.json { render json: @user.errors, status: :unprocessable_entity }
       end
   end
 
