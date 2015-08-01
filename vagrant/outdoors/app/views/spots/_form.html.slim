@@ -6,8 +6,12 @@
       .col-xs-8.right-content
         h2.name = unrated_spot.name
         p.body_text = unrated_spot.body
-        .field
+        .field.form-group
+          = radio_button_tag :"spot_id[#{unrated_spot.id}]", 1, checked: true
           = radio_button_tag :"spot_id[#{unrated_spot.id}]", 0
-          = radio_button_tag :"spot_id[#{unrated_spot.id}]", 1
+          .switch
+            = label :"", "行きたいーよ", for: "spot_id_#{unrated_spot.id}_1"
+            = label :"", "行きたくないーよ", for: "spot_id_#{unrated_spot.id}_0"
+            span
   .col-xs-4.form-btn
     .action = submit_tag 'チェックを完了する', class: "btn btn-primary btn-lg"

@@ -2,6 +2,9 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+$green: #00bc9c;
+$red: #eb4f37;
+
 #spots_new
 {
 
@@ -29,6 +32,126 @@
         margin-bottom: 20px;
         line-height: 22px;
       }
+
+      .form-group
+      {
+        height: 70px;
+
+        input[type=radio]
+        {
+          display: none;
+        }
+
+        #spot_id_1_0:checked ~ .switch,
+        #spot_id_2_0:checked ~ .switch,
+        #spot_id_3_0:checked ~ .switch,
+        #spot_id_4_0:checked ~ .switch,
+        #spot_id_5_0:checked ~ .switch
+        {
+          background: $red;
+
+          span
+          {
+            background: white;
+            margin-left: -8px;
+
+            &:after
+            {
+              background: white;
+              height: 20px;
+              margin-top: -8px;
+              margin-left: 8px;
+            }
+          }
+
+          label[for=spot_id_1_0],
+          label[for=spot_id_2_0],
+          label[for=spot_id_3_0],
+          label[for=spot_id_4_0],
+          label[for=spot_id_5_0]
+          {
+            color: white;
+          }
+        }
+
+        #spot_id_1_1:checked ~ .switch label[for=spot_id_1_1],
+        #spot_id_2_1:checked ~ .switch label[for=spot_id_2_1],
+        #spot_id_3_1:checked ~ .switch label[for=spot_id_3_1],
+        #spot_id_4_1:checked ~ .switch label[for=spot_id_4_1],
+        #spot_id_5_1:checked ~ .switch label[for=spot_id_5_1]
+        {
+          color: white;
+        }
+
+        .switch
+        {
+          position: absolute;
+          width: 290px;
+          height: 50px;
+          text-align: center;
+          background: $green;
+          transition: all 0.2s ease;
+          border-radius: 25px;
+
+          span
+          {
+            position: absolute;
+            width: 20px;
+            height: 4px;
+            top: 50%;
+            left: 50%;
+            margin: -2px 0px 0px -4px;
+            background: white;
+            display: block;
+            transform: rotate(-45deg);
+            transition: all 0.2s ease;
+
+            &:after
+            {
+              content: "";
+              display: block;
+              position: absolute;
+              width: 4px;
+              height: 12px;
+              margin-top: -8px;
+              background: white;
+              transition: all 0.2s ease;
+            }
+          }
+
+          label
+          {
+            cursor: pointer;
+            color: rgba(#000, .2);
+            width: 130px;
+            line-height: 50px;
+            transition: all 0.2s ease;
+          }
+
+          label[for=spot_id_1_1],
+          label[for=spot_id_2_1],
+          label[for=spot_id_3_1],
+          label[for=spot_id_4_1],
+          label[for=spot_id_5_1]          
+          {
+            position: absolute;
+            left: 0px;
+            height: 20px;
+          }
+
+          label[for=spot_id_1_0],
+          label[for=spot_id_2_0],
+          label[for=spot_id_3_0],
+          label[for=spot_id_4_0],
+          label[for=spot_id_5_0]
+          {
+            position: absolute;
+            right: 0px;
+          }
+
+        }
+
+     }
     }
 
     .form-btn
