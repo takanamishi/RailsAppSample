@@ -1,8 +1,7 @@
 #sessions_new
   .col-xs-5.login-content
     - if action_name == "create"
-      .alert.alert-danger
-        メールアドレスまたはパスワードが正しくありません。
+      .alert.alert-danger メールアドレスまたはパスワードが正しくありません。
 
     = form_for @user, url: user_sessions_path, method: :post do |f|
       h2 ログイン

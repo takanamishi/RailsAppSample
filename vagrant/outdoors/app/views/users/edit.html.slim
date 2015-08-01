@@ -1,3 +1,4 @@
 #users_edit
   .col-xs-6.edit-content
     = render 'form'
+    = link_to "退会する", current_user, data: {:confirm => "退会しても良いですか？"}, :method => :delete

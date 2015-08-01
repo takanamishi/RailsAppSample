@@ -1,9 +1,8 @@
 = form_for @user do |f|
-  h2
-    - if current_user
-      登録情報の編集
-    - else
-      会員登録する
+  - if current_user
+    h2 登録情報の編集
+  - else
+    h2 会員登録する
   
   - if @user.errors.any?
     - @user.errors.full_messages.each do |message|
@@ -23,5 +22,5 @@
     .actions = f.submit "変更する", class: "btn btn-primary"
   - else
     .actions = f.submit "登録する", class: "btn btn-primary"
-    = link_to "ログインする", new_user_sessions_path
+    = link_to "ログインする", new_user_sessions_path, class: "login"
 .clear

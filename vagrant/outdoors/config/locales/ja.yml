@@ -1,0 +1,16 @@
+ja:
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              blank: メールアドレスを入力してください
+              taken: メールアドレスは既に登録済みです
+            password:
+              blank: パスワードを入力してください
+              too_short: パスワードは6文字以上入力してください
+              too_long: パスワード24文字以内となります
+            password_confirmation:
+              blank: 確認用パスワードを入力してください
+              confirmation: 確認用パスワードが一致しません
