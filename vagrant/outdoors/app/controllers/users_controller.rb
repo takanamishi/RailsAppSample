@@ -4,8 +4,12 @@ class UsersController < ApplicationController
 
   # GET /users/new
   def new
-    @user = User.new
-    render :layout => 'registrations'
+    if current_user
+      redirect_to spots_path
+    else
+      @user = User.new
+      render :layout => 'registrations'
+    end
   end
 
   # GET /users/1/edit
