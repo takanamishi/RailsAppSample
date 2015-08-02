@@ -14,6 +14,12 @@ RSpec.describe SpotsController, :type => :controller do
   end
 
   describe "GET index" do
+    it "ログインしていなければ、トップページにリダイレクトされること" do
+      logout_user
+      get :index
+      expect(response).to redirect_to root_path
+    end
+
     it "User.spotsが0件の場合、newにリダイレクトすること" do
       get :index
       expect(response).to redirect_to(:action => 'new')
@@ -65,15 +71,20 @@ RSpec.describe SpotsController, :type => :controller do
   end
 
   describe "GET new" do
-    before do
+    it "ログインしていなければ、トップページにリダイレクトされること" do
+      logout_user
       get :new
+
+      expect(response).to redirect_to root_path
     end
 
     it "サクセスすること" do
+      get :new
       expect(response).to be_success
     end
 
     it "spots/newを描画すること" do
+      get :new
       expect(response).to render_template("spots/new")
     end
 
